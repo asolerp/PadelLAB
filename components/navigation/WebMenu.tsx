@@ -1,12 +1,15 @@
 import React from 'react';
 import { useActiveMenuIsVisible } from '../../pages/hooks/useActiveMenuIsVisible';
 
-export const WebMenu = () => {
+export const WebMenu = ({ containerStyle }) => {
   useActiveMenuIsVisible();
 
   return (
     <nav>
-      <div className="container fixed z-50 top-10 right-10 flex-row items-end">
+      <div
+        className="container fixed z-50 top-10 right-10 flex-row items-end"
+        style={{ ...containerStyle }}
+      >
         <ul className="flex justify-end">
           <li className="flex">
             <a

@@ -1,8 +1,12 @@
 import React from 'react';
+import { useAnimateHomeBoxes } from '../../pages/hooks/useAnimateHomeBoxes';
+import { useAnimateHomeTitle } from '../../pages/hooks/useAnimateHomeTitle';
 
 import { OverlayBox } from '../layout/OverlayBox';
 
 export const HomeSection = () => {
+  useAnimateHomeBoxes();
+  useAnimateHomeTitle();
   return (
     <OverlayBox url="/bg_home.jpeg" color="#202020" opacity={95}>
       {/* <div>
