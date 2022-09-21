@@ -7,7 +7,7 @@ export const useHomeAnimations = () => {
     mainAnimation.add({
       targets: '#mainMask',
       delay: 500,
-      duration: 5000,
+      duration: 7000,
       opacity: [1, 0],
       changeBegin: () => setAnimationBegin(true),
     });

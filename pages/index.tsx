@@ -9,6 +9,7 @@ import { CustomCursor } from '../components/navigation/CustomCursor';
 import { HomeSection } from '../components/home/HomeSection';
 import { AboutMeSection } from '../components/aboutMe/AboutMeSection';
 import { useHomeAnimations } from './hooks/useHomeAnimations';
+import { MethodSection } from '../components/method/MethodSection';
 
 const Home: NextPage = () => {
   const { defaultStyle, transitionStyles, animationBegin } =
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
         </Head>
         <div
           id="mainMask"
-          className="absolute top-0 left-0 bg-black z-50"
+          className="absolute top-0 left-0 bg-black z-30"
           style={{
             width: '100vw',
             height: '100vh',
@@ -49,12 +50,14 @@ const Home: NextPage = () => {
               </>
             )}
           </Transition>
-
           <section id="home" className="z-10">
-            <HomeSection />
+            <HomeSection animation={animationBegin} />
           </section>
-          <section id="aboutMe" className="z-20">
+          <section id="about" className="z-20">
             <AboutMeSection />
+          </section>
+          <section id="method" className="z-20">
+            <MethodSection />
           </section>
         </main>
 

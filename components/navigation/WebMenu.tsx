@@ -21,8 +21,8 @@ export const WebMenu = ({ containerStyle }) => {
           </li>
           <li className="flex">
             <a
-              href="#aboutMe"
-              className={`aboutMe no-underline text-white text-xl font-sans mr-6 pb-5 hover:border-b-2 transition-all`}
+              href="#about"
+              className={`about no-underline text-white text-xl font-sans mr-6 pb-5 hover:border-b-2 transition-all`}
             >
               SOBRE MI
             </a>
