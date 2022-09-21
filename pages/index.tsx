@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Transition } from 'react-transition-group';
@@ -8,33 +8,11 @@ import { CustomCursor } from '../components/navigation/CustomCursor';
 
 import { HomeSection } from '../components/home/HomeSection';
 import { AboutMeSection } from '../components/aboutMe/AboutMeSection';
-import anime from 'animejs';
+import { useHomeAnimations } from './hooks/useHomeAnimations';
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    const mainAnimation = anime.timeline();
-    mainAnimation.add({
-      targets: '#mainMask',
-      delay: 500,
-      duration: 5000,
-      opacity: [1, 0],
-      changeBegin: () => setAnimationFinished(true),
-    });
-  }, []);
-
-  const [animationFinished, setAnimationFinished] = useState(false);
-
-  const defaultStyle = {
-    transition: `transform ${1000}ms ease-in-out`,
-    transform: `translate(0px, -200px)`,
-  };
-
-  const transitionStyles = {
-    entering: { transform: `translate(0px, -200px)` },
-    entered: { transform: `translate(0px, 0px)` },
-    exiting: { transform: `translate(0px, 0px)` },
-    exited: { transform: `translate(0px, -200px)` },
-  };
+  const { defaultStyle, transitionStyles, animationBegin } =
+    useHomeAnimations();
 
   return (
     <div className="cursor-none" style={{ scrollBehavior: 'smooth' }}>
@@ -53,7 +31,7 @@ const Home: NextPage = () => {
           }}
         ></div>
         <main id="main" className="flex w-full flex-1 flex-col">
-          <Transition in={animationFinished} timeout={300}>
+          <Transition in={animationBegin} timeout={300}>
             {(state) => (
               <>
                 <div
